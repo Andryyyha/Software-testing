@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suite">
+    <test name="ru.beru.LoginTest">
+        <classes>
+            <class name="ru.beru.LoginTest"/>
+        </classes>
+    </test>
+    <test name="ChangeCItyTest">
+        <classes>
+            <class name="ru.beru.ChangeCityTest"/>
+        </classes>
+    </test>
+</suite>
