@@ -7,6 +7,8 @@ import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.cropper.indent.BlurFilter;
 import ru.yandex.qatools.ashot.cropper.indent.IndentCropper;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -19,30 +21,20 @@ public class HighlightElement {
     }
 
     public void highlightElement(WebElement element, WebDriver driver) {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("arguments[0].setAttribute('style', arguments[1]);",
-                element, "color: red; border: 2px solid red; border-color: red;");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         AShot screenshooter = new AShot();
         screenshooter.imageCropper(new IndentCropper().addIndentFilter(new BlurFilter()))
                 .takeScreenshot(driver, element);
 
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        String name = "/Users/andryyyha/IdeaProjects/testing/src/test/screenshots/" + dateFormat.format(date) + ".jpg";
-        File fileName = new File(name);
+        String name = "/Users/andryyyha/IdeaProjects/testing/src/test/screenshots/" + dateFormat.format(date) + ".png";
         try {
-//            Screenshot sc = new AShot().imageCropper(new IndentCropper().addIndentFilter(new BlurFilter()));
-            FileUtils.copyFile(file, fileName);
-        } catch (IOException e) {
+            Screenshot sc = new AShot().imageCropper(new IndentCropper(1000).addIndentFilter(new BlurFilter()))
+                    .takeScreenshot(driver, element);
+            BufferedImage bf = sc.getImage();
+            ImageIO.write(bf, "PNG", new File(name));
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        /*javascriptExecutor.executeScript("arguments[0].setAttribute('style', arguments[1]);",
-                element, "");*/
     }
 }
