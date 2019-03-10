@@ -1,11 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="suite">
-    <test name="ru.beru.LoginTest">
+    <test name="LoginTest">
         <classes>
             <class name="ru.beru.LoginTest"/>
         </classes>
     </test>
-    <test name="ChangeCItyTest">
+    <test name="ChangeCityTest">
+        <parameter name="cityName" value="Хвалынск"/>
         <classes>
             <class name="ru.beru.ChangeCityTest"/>
         </classes>

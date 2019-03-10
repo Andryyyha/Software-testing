@@ -15,7 +15,7 @@ public class TestConfig {
     protected WebDriver driver;
     protected HighlightElement highlighter;
 
-    @BeforeSuite
+    @BeforeTest
     protected void setUp() {
         driver = new FirefoxDriver();
         highlighter = new HighlightElement();
@@ -29,7 +29,7 @@ public class TestConfig {
 
     }
 
-    @AfterSuite
+    @AfterTest
     protected void tearDown() {
         driver.quit();
     }

@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 public class ChangeCityTest extends TestConfig {
 
     // FIXME: unstable test, fix
-//    @Parameters({"city-name"})
+    @Parameters("cityName")
     @Test
-    public void changeCityTest() {
+    public void changeCityTest(String cityName) {
         driver.manage().window().maximize();
         WebElement cityChooser = driver.findElement(By
                 .xpath("/html/body/div[1]/div/div[1]/div[2]/noindex/div/div[1]/div/div/div[1]/span/span[2]"));
@@ -26,7 +26,7 @@ public class ChangeCityTest extends TestConfig {
 
         WebElement inputBox = driver.findElement(By.xpath("(//form[contains(@class, 'region-select-form')]//input)[1]"));
         highlighter.highlightElement(inputBox, driver);
-        inputBox.sendKeys("Хвалынск");
+        inputBox.sendKeys(cityName);
         WebElement suggsester = driver.findElement(By.cssSelector(".region-suggest>div"));
         Actions actions = new Actions(driver);
         actions.moveToElement(suggsester).click().perform();
@@ -37,13 +37,12 @@ public class ChangeCityTest extends TestConfig {
         highlighter.highlightElement(button, driver);
         button.click();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.navigate().refresh();
 
-        WebElement linkInner = (new WebDriverWait(driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".link__inner")));
+        WebElement linkInner = driver.findElement(By.cssSelector(".link__inner"));
         highlighter.highlightElement(linkInner, driver);
         String s = linkInner.getText();
-        Assert.assertEquals(s, "Хвалынск");
+        Assert.assertEquals(s, cityName);
 
         WebElement loginButton = driver.findElement(By.className("header2-nav-item__text"));
         highlighter.highlightElement(loginButton, driver);

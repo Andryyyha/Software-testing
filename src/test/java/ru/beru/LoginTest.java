@@ -12,14 +12,6 @@ public class LoginTest extends TestConfig {
 
     @Test
     public void loginTest() {
-//        driver.get("https://beru.ru/");
-
-        /*driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-        // TODO: highlight x button
-        WebElement closeAds = (new WebDriverWait(driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("._1ZYDKa22GJ > div:nth-child(1) > svg:nth-child(1)")));
-        closeAds.click();*/
 
         WebElement loginButton = driver.findElement(By.className("header2-nav-item__text"));
         highlighter.highlightElement(loginButton, driver);
@@ -48,9 +40,5 @@ public class LoginTest extends TestConfig {
         myProfile.isDisplayed();
         highlighter.highlightElement(myProfile, driver);
         myProfile.click();
-
-        /*WebElement quitButton = driver.findElement(By.cssSelector(".header2-user-menu__logout"));
-        highligter.highlightElement(quitButton, driver);
-        quitButton.click();*/
     }
 }
