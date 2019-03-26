@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ChangeCityTest extends TestConfig {
 
-    // FIXME: unstable test, fix
     @Parameters("cityName")
     @Test
     public void changeCityTest(String cityName) {

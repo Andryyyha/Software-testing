@@ -23,14 +23,14 @@ public class TestConfig {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         // TODO: highlight x button
-        WebElement closeAds = (new WebDriverWait(driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("._1ZYDKa22GJ > div:nth-child(1) > svg:nth-child(1)")));
+        WebElement closeAds = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("._3BBUsZVSt0")));
         closeAds.click();
 
     }
 
-    @AfterTest
+/*    @AfterTest
     protected void tearDown() {
         driver.quit();
-    }
+    }*/
 }

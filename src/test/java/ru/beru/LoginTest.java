@@ -12,7 +12,6 @@ public class LoginTest extends TestConfig {
 
     @Test
     public void loginTest() {
-
         WebElement loginButton = driver.findElement(By.className("header2-nav-item__text"));
         highlighter.highlightElement(loginButton, driver);
         loginButton.click();
