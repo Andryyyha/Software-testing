@@ -14,12 +14,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ChangeCityTest extends TestConfig {
 
-    @Parameters("cityName")
-    @Test
+    @Test(dataProvider = "ChangeCityTest")
     public void changeCityTest(String cityName) {
-        driver.manage().window().maximize();
         WebElement cityChooser = driver.findElement(By
-                .xpath("/html/body/div[1]/div/div[1]/div[2]/noindex/div/div[1]/div/div/div[1]/span/span[2]"));
+                .xpath("/html/body/div[1]/div/div[2]/div[2]/noindex/div/div[1]/div/div/div[1]/span/span[2]/span/span"));
         highlighter.highlightElement(cityChooser, driver);
         cityChooser.click();
 
@@ -28,11 +26,15 @@ public class ChangeCityTest extends TestConfig {
         inputBox.sendKeys(cityName);
         WebElement suggsester = driver.findElement(By.cssSelector(".region-suggest>div"));
         Actions actions = new Actions(driver);
-        actions.moveToElement(suggsester).click().perform();
+        actions.click(suggsester).perform();
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        WebElement button = driver.findElement(By.xpath("/html/body/div[7]/div/div/div[1]/div[1]/form/div/button"));
+       // WebElement button = driver.findElement(By.xpath("//span[contains(@class, 'button2__text) and contains(text(), 'Продолжить с новым регионом')]"));
+        WebElement button = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.elementToBeClickable(By.
+                        xpath("/html/body/div[7]/div/div/div[1]/div[1]/form/div/button")));
+               // driver.findElement(By.xpath("/html/body/div[7]/div/div/div[1]/div[1]/form/div/button"));
         highlighter.highlightElement(button, driver);
         button.click();
 
@@ -50,7 +52,7 @@ public class ChangeCityTest extends TestConfig {
         WebElement loginWait = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"passp-field-login\"]")));
         highlighter.highlightElement(loginWait, driver);
-        loginWait.sendKeys("st-winter2019");
+        loginWait.sendKeys("st-spring2019");
 
         WebElement login = driver.findElement(By.cssSelector("button.button2:nth-child(1)"));
         highlighter.highlightElement(login, driver);
@@ -66,12 +68,17 @@ public class ChangeCityTest extends TestConfig {
         highlighter.highlightElement(submit, driver);
         submit.click();
 
-        WebElement loginButton2 = driver.findElement(By.cssSelector("span.header2-nav-item > span:nth-child(1) > span:nth-child(1)"));
+        WebElement loginButton2 = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.presenceOfElementLocated(By
+                        .cssSelector("span.header2-nav-item > span:nth-child(1) > span:nth-child(1)")));
+               // driver.findElement(By.cssSelector("span.header2-nav-item > span:nth-child(1) > span:nth-child(1)"));
         loginButton2.click();
 
         WebElement settings = driver.findElement(By.cssSelector("li.header2-user-menu__item:nth-child(3) > a:nth-child(1)"));
         highlighter.highlightElement(settings, driver);
         settings.click();
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.get("https://beru.ru/my/settings");
 
         WebElement deliveryCity = driver.findElement(By.cssSelector("span.link_theme_minor:nth-child(1) > span"));
         String s1 = deliveryCity.getText();

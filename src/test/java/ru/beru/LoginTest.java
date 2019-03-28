@@ -19,7 +19,7 @@ public class LoginTest extends TestConfig {
         WebElement loginWait = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"passp-field-login\"]")));
         highlighter.highlightElement(loginWait, driver);
-        loginWait.sendKeys("st-winter2019");
+        loginWait.sendKeys("st-spring2019");
 
         WebElement login = driver.findElement(By.cssSelector("button.button2:nth-child(1)"));
         highlighter.highlightElement(login, driver);

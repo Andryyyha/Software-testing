@@ -11,4 +11,9 @@
             <class name="ru.beru.ChangeCityTest"/>
         </classes>
     </test>
+    <test name="DeliveryTest">
+        <classes>
+            <class name="ru.beru.DeliveryTest"/>
+        </classes>
+    </test>
 </suite>

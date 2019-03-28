@@ -15,12 +15,13 @@ public class TestConfig {
     protected WebDriver driver;
     protected HighlightElement highlighter;
 
-    @BeforeTest
+    @BeforeMethod
     protected void setUp() {
         driver = new FirefoxDriver();
         highlighter = new HighlightElement();
+        driver.manage().window().maximize();
         driver.get("https://beru.ru/");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // TODO: highlight x button
         WebElement closeAds = (new WebDriverWait(driver, 10))
@@ -29,8 +30,13 @@ public class TestConfig {
 
     }
 
-/*    @AfterTest
+    @AfterMethod
     protected void tearDown() {
         driver.quit();
-    }*/
+    }
+
+    @DataProvider(name = "ChangeCityTest")
+    public static Object[] citiesNames() {
+        return new Object[] {"Хвалынск"};
+    }
 }
