@@ -39,7 +39,7 @@ public class PageObjectLogin extends TestConfig {
 
     @Step("Submit password")
     public void submitPassword() {
-        submit = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[3]/div[2]/div/div[1]/form/div[2]/button"));
+        submit = driver.findElement(By.cssSelector("button.control:nth-child(1)"));
         submit.click();
     }
 }

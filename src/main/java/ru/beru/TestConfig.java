@@ -21,9 +21,9 @@ public class TestConfig {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // TODO: highlight x button
-        WebElement closeAds = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("._3BBUsZVSt0")));
-        closeAds.click();
+//        WebElement closeAds = (new WebDriverWait(driver, 10))
+//                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("._3BBUsZVSt0")));
+//        closeAds.click();
     }
 
     @AfterMethod
