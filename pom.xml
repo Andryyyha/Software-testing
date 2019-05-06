@@ -73,7 +73,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+<!--                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -85,5 +85,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
