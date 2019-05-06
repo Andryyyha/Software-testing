@@ -36,17 +36,25 @@
             <version>${allure.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.5</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.5</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>
@@ -73,7 +81,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-<!--                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
+                    <!--                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
                 </configuration>
                 <dependencies>
                     <dependency>

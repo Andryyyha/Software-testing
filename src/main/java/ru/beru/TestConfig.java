@@ -1,11 +1,8 @@
 package ru.beru;
 
-import org.openqa.selenium.By;
+import org.aspectj.lang.annotation.Aspect;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
@@ -19,11 +16,6 @@ public class TestConfig {
         driver.manage().window().maximize();
         driver.get("https://beru.ru/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        // TODO: highlight x button
-//        WebElement closeAds = (new WebDriverWait(driver, 10))
-//                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("._3BBUsZVSt0")));
-//        closeAds.click();
     }
 
     @AfterMethod

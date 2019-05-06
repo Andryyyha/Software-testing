@@ -89,4 +89,9 @@ public class PageObjectMainPage {
         String s1 = deliveryCityName.getAttribute("textContent");
         Assert.assertEquals(cityName, s1);
     }
+
+    @Step("Go to elcetric toothbrushes")
+    public void goToBrushes() {
+        driver.get("https://beru.ru/catalog/elektricheskie-zubnye-shchetki/79832/list?hid=278374&track=fr_ctlg");
+    }
 }

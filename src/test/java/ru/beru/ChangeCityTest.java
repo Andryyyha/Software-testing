@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class ChangeCityTest extends TestConfig {
 
-    @Test(dataProvider = "ChangeCityTest")
+//    @Test(dataProvider = "ChangeCityTest")
     public void changeCityTest(String cityName) {
         PageObjectMainPage pageObjectMainPage = new PageObjectMainPage(driver);
         PageObjectLogin pageObjectLogin = new PageObjectLogin(driver);
