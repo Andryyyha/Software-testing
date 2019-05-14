@@ -17,6 +17,7 @@ public class PageObjectMainPage {
     private WebElement acceptButton;
     private WebElement linkInner;
     private WebElement deliveryCityName;
+    private WebElement emailField;
     private WebDriver driver;
 
     public PageObjectMainPage(WebDriver driver) {
@@ -93,5 +94,12 @@ public class PageObjectMainPage {
     @Step("Go to elcetric toothbrushes")
     public void goToBrushes() {
         driver.get("https://beru.ru/catalog/elektricheskie-zubnye-shchetki/79832/list?hid=278374&track=fr_ctlg");
+    }
+
+    @Step("Check email presence")
+    public void checkEmail() {
+        (new Actions(driver)).moveToElement(driver.findElement(By.cssSelector(".header2-nav__user"))).build().perform();
+        WebElement userMenuEmail = driver.findElement(By.cssSelector(".header2-user-menu__email"));
+        Assert.assertEquals(userMenuEmail.getAttribute("textContent"), "st-spring2019@yandex.ru");
     }
 }

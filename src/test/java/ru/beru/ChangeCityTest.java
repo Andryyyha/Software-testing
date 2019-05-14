@@ -31,5 +31,7 @@ public class ChangeCityTest extends TestConfig {
         pageObjectMainPage.openSettings();
 
         pageObjectMainPage.compareNames(cityName);
+
+        pageObjectMainPage.logout();
     }
 }

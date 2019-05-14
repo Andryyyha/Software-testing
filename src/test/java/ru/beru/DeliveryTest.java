@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DeliveryTest extends TestConfig {
 
-    @Test
+//    @Test
     public void deliveryTest() {
 
         PageObjectItems pageObjectItems = new PageObjectItems(driver);

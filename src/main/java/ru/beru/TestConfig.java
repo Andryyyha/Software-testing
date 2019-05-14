@@ -3,16 +3,24 @@ package ru.beru;
 import org.aspectj.lang.annotation.Aspect;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestConfig {
-    public WebDriver driver;
+    public static EventFiringWebDriver driver;
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     protected void setUp() {
-        driver = new FirefoxDriver();
+        StepListener sl = new StepListener();
+        FirefoxDriver ffDriver = new FirefoxDriver();
+        driver = new EventFiringWebDriver(ffDriver);
+        driver.register(sl);
         driver.manage().window().maximize();
         driver.get("https://beru.ru/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

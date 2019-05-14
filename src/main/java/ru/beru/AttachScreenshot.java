@@ -16,7 +16,7 @@ public class AttachScreenshot {
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
-    private byte[] takeScreenshot() {
+    public byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
