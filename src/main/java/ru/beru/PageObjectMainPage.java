@@ -47,15 +47,15 @@ public class PageObjectMainPage {
     @Step("click to city chooser")
     public void clickToCityChooser() {
         cityChooser = driver.findElement(By
-                .xpath("/html/body/div[1]/div/div[2]/div[2]/noindex/div/div[1]/div/div/div[1]/span/span[2]/span/span"));
+                .xpath("/html/body/div[1]/div[3]/div[1]/div[2]/noindex/div/div[1]/div/div/div[1]/span/span[2]/span/span"));
         cityChooser.click();
     }
 
     @Step("send keys to inputBox")
-    public void sendKeysToInputBox() {
+    public void sendKeysToInputBox(String cityName) {
         inputBox = driver.findElement(By.xpath("(//form[contains(@class, 'region-select-form')]//input)[1]"));
         inputBox.click();
-        inputBox.sendKeys("Хвалынск");
+        inputBox.sendKeys(cityName);
     }
 
     @Step("click to suggester")

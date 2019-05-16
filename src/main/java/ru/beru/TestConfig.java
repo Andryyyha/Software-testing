@@ -33,6 +33,6 @@ public class TestConfig {
 
     @DataProvider(name = "ChangeCityTest")
     public static Object[] citiesNames() {
-        return new Object[] {"Хвалынск"};
+        return new Object[][] {{"Хвалынск"}, {"Маркс"}, {"Саратов"}};
     }
 }
