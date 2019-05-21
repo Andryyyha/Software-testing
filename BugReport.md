@@ -1,0 +1,64 @@
+# Не меняется название города
+**Severity: major**
+
+**Priority: mdeium**
+
+**Steps to repdoruce:**
+- Нажать на название города в правом верхнем углу
+- Вести название города
+- Нажать на кнопку "Продолжить с новым регионом"
+- 
+**Actual result:**
+- Название города не сменилось на необходимое
+
+**Expected result:**
+- Название города сменилось на соответствующее
+
+**Environment:**
+
+OS version: macOS 10.14.4
+
+Browser version: 66.0.5 (64-bit)
+
+# Кнопка "В корзину" не добавляет товар в корзину с первого раза
+
+**Severity: critical**
+
+**Priority: medium**
+
+**Steps to reproduce:**
+- Добавить товар в корзину
+
+**Actual result:**
+- Товар не добавляется в корзину с первого раза
+
+**Expected result**
+- Товар добавляется в корзину с первого раза
+
+**Environment:**
+
+OS version: macOS 10.14.4
+
+Browser version: 66.0.5 (64-bit)
+
+# При наведенеии на кнопку "Мой профиль" не отображается e-mail
+
+**Severity: minor**
+
+**Priority: low**
+
+**Steps to reproduce:**
+- Авторизоваться на сайте
+- Навести курсор на кнопку "Мой профиль"
+
+**Actual result:**
+- Отображается имя пользователя, но не отображается e-mail
+
+**Expected result:**
+- Отображается корректная информация: имя пользователя и его e-mail
+  
+  **Environment:**
+
+OS version: macOS 10.14.4
+
+Browser version: 66.0.5 (64-bit)
