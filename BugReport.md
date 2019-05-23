@@ -1,7 +1,7 @@
 # Не меняется название города
 **Severity: major**
 
-**Priority: mdeium**
+**Priority: medium**
 
 **Steps to repdoruce:**
 - Нажать на название города в правом верхнем углу
